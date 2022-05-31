@@ -19,7 +19,7 @@ class NavigationDrawer extends StatelessWidget {
                     headerWidget(context),
                     const Divider(color: Colors.black, thickness: 0.3,),
                     NavigationItem(
-                      name: 'Alimentadores',
+                      name: 'Alimentadores2',
                       icon: Icons.link_sharp,
                       onPressed: () => onItemPressed(context, index: 0),
                     ),
