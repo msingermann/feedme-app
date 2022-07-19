@@ -29,7 +29,9 @@ class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {return false;},
+      onWillPop: () async {
+        return false;
+      },
       child: Scaffold(
         body: muestraSplash(),
       ),
@@ -39,39 +41,36 @@ class _FirstPageState extends State<FirstPage> {
   @override
   void initState() {
     super.initState(); //when this route starts, it will execute this code
-    Future.delayed(const Duration(seconds: 1), () { //asynchronous delay
-      if (isSplashVisible) { //checks if widget is still active and not disposed
+    Future.delayed(const Duration(seconds: 1), () {
+      //asynchronous delay
+      if (isSplashVisible) {
+        //checks if widget is still active and not disposed
         loadLogin();
       }
     });
   }
-  muestraSplash(){
-      return Container(
-      //color: Colors.deepOrangeAccent,
-      color: Color.fromRGBO(252, 213, 167, 1),
-      child: Center(
-        child: Column(
+
+  muestraSplash() {
+    return Container(
+        //color: Colors.deepOrangeAccent,
+        color: Color.fromRGBO(252, 213, 167, 1),
+        child: Center(
+            child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(500),
-                      child: Image.asset('assets/images/corgyHello.jpg')
-                    ),
-                    Text('Smart Feeder',  style: TextStyle(fontFamily: 'TitanOne', fontSize: 50))
-                  ]
-              )
-            )
+                child: Column(children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(500),
+                  child: Image.asset('assets/images/corgyHello.jpg')),
+              Text('Feed.me!',
+                  style: TextStyle(fontFamily: 'TitanOne', fontSize: 50))
+            ]))
           ],
-        )
-      )
-    );
+        )));
   }
 
-  loadLogin(){
+  loadLogin() {
     return Navigator.of(context).pushNamed('/login');
   }
 }
-

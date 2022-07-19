@@ -37,6 +37,8 @@ dependencies:
   flutter_blue: ^0.8.0
   wifi_iot: ^0.3.16
   fluttertoast: ^8.0.9
+  wifi_scan: ^0.3.0
+  day_picker: 2.1.0
 
 dev_dependencies:
   flutter_test:
