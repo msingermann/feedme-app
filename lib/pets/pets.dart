@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_feeder/navigation/appBarCustomized.dart';
+import 'package:smart_feeder/pets/newPet.dart';
+import 'package:smart_feeder/pets/petRow.dart';
 
 class Pets extends StatelessWidget {
   const Pets({Key? key}) : super(key: key);
@@ -7,15 +9,23 @@ class Pets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustomized(appBar: AppBar(),),
+      appBar: AppBarCustomized(
+        appBar: AppBar(),
+      ),
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('Mascotas', style: TextStyle(fontSize: 40)),
-          ]
-        )
-      )
+          child: Column(children: [
+        Text('Mascotas', style: TextStyle(fontSize: 40)),
+        petRow(),
+        petRow(),
+      ])),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => newPet()),
+            );
+          },
+          child: Icon(Icons.add)),
     );
   }
 }
