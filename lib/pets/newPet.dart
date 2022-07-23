@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:smart_feeder/navigation/appBarCustomized.dart';
 import 'package:smart_feeder/pets/planAlimentacion.dart';
 
+import 'linkTag.dart';
+
 class newPet extends StatelessWidget {
   List<DropdownMenuItem<String>> razas = [
     DropdownMenuItem(child: Text("1"), value: "1"),
@@ -75,7 +77,7 @@ class newPet extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => planAlimentacion()),
+            MaterialPageRoute(builder: (context) => linkTag()),
           );
         },
       ),
