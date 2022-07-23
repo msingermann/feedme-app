@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_feeder/feeders/link_feeder.dart';
 import 'package:smart_feeder/navigation/appBarCustomized.dart';
+import 'package:flutter/foundation.dart';
 
 import 'feederRow.dart';
 
@@ -38,8 +39,10 @@ class _FeederState extends State<Feeder> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () => link(context), child: Icon(Icons.add)),
+      floatingActionButton: kIsWeb
+          ? null
+          : FloatingActionButton(
+              onPressed: () => link(context), child: Icon(Icons.add)),
     );
   }
 
