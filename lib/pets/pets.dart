@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_feeder/navigation/appBarCustomized.dart';
 import 'package:smart_feeder/pets/newPet.dart';
 import 'package:smart_feeder/pets/petRow.dart';
+import 'package:flutter/foundation.dart';
 
 class Pets extends StatelessWidget {
   const Pets({Key? key}) : super(key: key);
@@ -18,14 +19,16 @@ class Pets extends StatelessWidget {
         petRow(),
         petRow(),
       ])),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => newPet()),
-            );
-          },
-          child: Icon(Icons.add)),
+      floatingActionButton: kIsWeb
+          ? null
+          : FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => newPet()),
+                );
+              },
+              child: Icon(Icons.add)),
     );
   }
 }
