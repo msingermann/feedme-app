@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smart_feeder/navigation/appBarCustomized.dart';
 import 'package:day_picker/day_picker.dart';
+import 'package:smart_feeder/pets/horarioCantidadPlanAlimentacion.dart';
 
 class planAlimentacion extends StatelessWidget {
   double _kPickerSheetHeight = 216.0;
-  
+
   Duration initialtimer = new Duration();
 
   List<DayInWeek> _days = [
@@ -59,55 +60,28 @@ class planAlimentacion extends StatelessWidget {
                 print(values);
               },
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => horarioCantidadPlanAlimentacion()),
+                );
+              },
+              child: Icon(Icons.add),
+              style: ElevatedButton.styleFrom(
+                // fixedSize: const Size(50, 50),
+                shape: CircleBorder(),
+                // primary: Colors.blue,
+              ),
+            )
           ],
         ),
       ),
       floatingActionButton: ElevatedButton(
         child: Text("Siguiente"),
-        onPressed: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => linkFeeder2()),
-          // );
-          showCupertinoModalPopup<void>(
-              context: context,
-              builder: (BuildContext context) {
-                return _buildBottomPicker(timePicker());
-              });
-        },
+        onPressed: () {},
       ),
-    );
-  }
-
-  Widget _buildBottomPicker(Widget picker) {
-    return Container(
-      height: _kPickerSheetHeight,
-      padding: const EdgeInsets.only(top: 6.0),
-      color: CupertinoColors.white,
-      child: DefaultTextStyle(
-        style: const TextStyle(
-          color: CupertinoColors.black,
-          fontSize: 22.0,
-        ),
-        child: GestureDetector(
-          // Blocks taps from propagating to the modal sheet and popping.
-          onTap: () {},
-          child: SafeArea(
-            top: false,
-            child: picker,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget timePicker() {
-    return CupertinoTimerPicker(
-      mode: CupertinoTimerPickerMode.hms,
-      minuteInterval: 1,
-      secondInterval: 1,
-      initialTimerDuration: initialtimer,
-      onTimerDurationChanged: (Duration changedtimer) {},
     );
   }
 }
